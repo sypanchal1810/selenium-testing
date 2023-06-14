@@ -1,8 +1,15 @@
 const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
 
-const driver = new webdriver.Builder().forBrowser('chrome').build();
+// Set up Chrome options
+const options = new chrome.Options();
+// options.addArguments('--headless'); // Run Chrome in headless mode (without UI) means it will not open the browser window
 
-async function testWebsite() {
+// Set up the WebDriver
+const driver = new webdriver.Builder().forBrowser('chrome').setChromeOptions(options).build();
+
+// Immediately Invoked Asynchronous Function
+(async function testWebsite() {
   try {
     // Open the TSF website
     await driver.get('https://www.thesparksfoundationsingapore.org/');
@@ -40,11 +47,6 @@ async function testWebsite() {
       .click();
 
     // 2.1 Vision Statement
-    // const vsnStmt = await driver
-    //   .findElement({ xpath: '/html/body/div[2]/div/div[1]/div/div[1]/div[1]/div/p' })
-    //   .getAttribute('innerHTML');
-    // console.log(`\n******************** Vision Statement ********************\n${vsnStmt}`);
-
     await driver
       .findElement({
         xpath: '/html/body/div[2]/div/div[1]/div/div[1]/div[1]/div/p',
@@ -77,7 +79,7 @@ async function testWebsite() {
 
     // 3.1 Contact form
     await driver
-      .findElement({ xpath: '//form[@id="form"]' })
+      .findElement({ xpath: '//form[@id="contact-form"]' })
       .then(res => {
         if (res.isDisplayed()) {
           console.log('Contact form exists');
@@ -162,7 +164,4 @@ async function testWebsite() {
     console.log('\nClosing...');
     await driver.quit();
   }
-}
-
-// Call the function to test website
-testWebsite();
+})();
