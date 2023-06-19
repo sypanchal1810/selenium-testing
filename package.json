@@ -1,11 +1,11 @@
 {
   "name": "Selenium - automation",
   "version": "1.0.0",
-  "description": "Selenium test script to inspect the spark foundation website",
-  "main": "app.js",
+  "description": "Selenium test script to inspect The Spark Foundation website",
+  "main": "script.js",
   "scripts": {
-    "dev": "SET NODE_ENV=development&& node app.js",
-    "start": "SET NODE_ENV=production&& node app.js"
+    "dev": "SET NODE_ENV=development&& node script.js",
+    "start": "SET NODE_ENV=production&& node script.js"
   },
   "author": "sypanchal1810",
   "license": "ISC",

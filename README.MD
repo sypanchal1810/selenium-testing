@@ -23,7 +23,7 @@ script. This allows you to simulate user interactions, perform validations, and 
 
 ## Requirements
 
-- Node.js (v12 or higher)
+- Node.js (v14 or higher)
 - Selenium WebDriver
 - IDE - VS Code Editor
 
